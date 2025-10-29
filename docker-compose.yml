@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  api:
+    build: .
+    container_name: ai-microgrid-api
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - WORKERS=4
+    ports:
+      - "8000:8000"
+    restart: unless-stopped

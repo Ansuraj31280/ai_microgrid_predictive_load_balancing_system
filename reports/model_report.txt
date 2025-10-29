@@ -1,0 +1,42 @@
+AI Microgrid Optimizer - Model and Test Report
+
+Date: 2025-10-29
+
+Artifacts
+- Scaler: ml_models/scaler.pkl
+- Model:  ml_models/lstm_forecaster.h5
+- Data:   data/cleaned_iot_data.csv
+
+Training Configuration
+- Target: net_power_kw
+- Sequence length (N): 12
+- Prediction horizon (M): 12
+- Split: time-based, train/val/test (no leakage)
+- Features used for training: numeric columns only (strings removed)
+
+Training Results (scaled space)
+- Final train loss (MSE): ~0.0022
+- Validation MSE: ~9.761e-04
+- Test MSE: 0.001122
+- Test RMSE (scaled): ~0.0335
+
+Converted Metric
+- Test RMSE (kW): ~0.5094 kW
+  Notes: Computed using saved MinMaxScaler target scale parameter.
+
+FastAPI Integration
+- Health endpoint: GET /health
+- Optimize endpoint: POST /api/v1/control/optimize
+- Startup loads scaler and model once; inference uses zeros for non-telemetry features pending richer inputs
+
+Test Suite Summary (pytest)
+- Total: 5 passed, 0 failed
+- tests/test_health.py: health status fields present
+- tests/test_inference_scaling.py: end-to-end inference returns 12 values
+- tests/test_solver.py: solver returns feasible shedding action
+- tests/test_optimize_negative.py: 422 on bad sequence length
+- tests/test_solver_infeasible.py: raises RuntimeError when shedding infeasible
+
+Notes and Next Steps
+- To improve inference realism, map additional telemetry fields to the model features.
+- Optional: add more negative tests for payload types and device status parsing.
